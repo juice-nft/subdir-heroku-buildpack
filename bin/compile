@@ -18,6 +18,9 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		echo "       created tmp dir: $TMP_DIR"
 		echo "       moving working dir: $PROJECT_PATH to $TMP_DIR"
 		cp -R $BUILD_DIR/$PROJECT_PATH/. $TMP_DIR/
+		echo "       dealing w custom file bs"
+		rm -rf $TMP_DIR/tokens
+		cp -R  $BUILD_DIR/tokens $TMP_DIR/tokens
 	 	echo "       cleaning build dir $BUILD_DIR"
 		rm -rf $BUILD_DIR/*
 		echo "       copying preserved work dir from cache $TMP_DIR to build dir $BUILD_DIR"
